@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – calculator.esla.ph</title>
+    <meta name="description"
+        content="Learn about ESLA Calculator - your trusted source for free online calculators in the Philippines. Health, finance, education, and daily calculations made simple.">
+    <meta name="keywords"
+        content="ESLA Calculator, calculator Philippines, online tools, BMI calculator, loan calculator, tax calculator PH">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="About Us – calculator.esla.ph">
+    <meta property="og:description"
+        content="ESLA Calculator provides powerful and easy-to-use online calculators for health, finance, education, and daily calculations in the Philippines.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/about.html">
+    <link rel="canonical" href="https://calculator.esla.ph/about.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>About ESLA Calculator</h1>
+            <p class="hero-text">Accessible at https://calculator.esla.ph</p>
+        </section>
+
+        <section class="calculator-card" style="max-width: 800px; text-align: left;">
+            <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                We provide a powerful and easy-to-use collection of online calculators designed to help users in the
+                Philippines with health, finance, education, and daily calculations.
+            </p>
+
+            <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+                Our mission is to make calculations simple, fast, and accessible for everyone—students, professionals,
+                families, and gamers.
+            </p>
+
+            <h2 style="margin-bottom: 1rem;">Types of Calculators We Offer</h2>
+
+            <h3 style="margin-bottom: 0.75rem; margin-top: 1.5rem; font-size: 1.1rem;">Health & Fitness</h3>
+            <ul style="list-style: disc; padding-left: 2rem; color: var(--text-muted); margin-bottom: 1rem;">
+                <li>Body Mass Index (BMI)</li>
+                <li>Total Daily Energy Expenditure (TDEE)</li>
+                <li>Calorie Needs Calculator</li>
+            </ul>
+
+            <h3 style="margin-bottom: 0.75rem; margin-top: 1.5rem; font-size: 1.1rem;">Finance (in the Philippines)</h3>
+            <ul style="list-style: disc; padding-left: 2rem; color: var(--text-muted); margin-bottom: 1rem;">
+                <li>Car Loan Calculator</li>
+                <li>Motorcycle Loan Calculator</li>
+                <li>Pag-IBIG Loan Calculator</li>
+                <li>BPI Loan Calculator</li>
+                <li>AFPSLAI Loan Calculator</li>
+                <li>Tax Calculator PH – nett pay & Income Tax</li>
+            </ul>
+
+            <h3 style="margin-bottom: 0.75rem; margin-top: 1.5rem; font-size: 1.1rem;">Math & Utility</h3>
+            <ul style="list-style: disc; padding-left: 2rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                <li>Online Calculator (Basic)</li>
+                <li>Calculator (Percentage)</li>
+                <li>Calculator (Time)</li>
+                <li>GWA (Grade Weighted Average) Calculator</li>
+                <li>Axie Energy Tracker</li>
+            </ul>
+
+            <h2 style="margin-bottom: 1rem;">Note Ma'am/Sir</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--text-muted); font-style: italic;">
+                All calculators in ESLA Calculator yield results that are estimates. Results are meant for informational
+                purposes only and will vary in accordance to individual circumstances, policies, and rates.
+            </p>
+
+            <h2 style="margin-bottom: 1rem;">Contact</h2>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">
+                If you have any questions, please reach out.
+            </p>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">
+                📧 Email: <a href="mailto:nbpshelterinfo@gmail.com"
+                    style="color: var(--primary-color); text-decoration: none;">nbpshelterinfo@gmail.com</a>
+            </p>
+            <p style="color: var(--text-muted);">
+                🌐 Website: <a href="https://calculator.esla.ph"
+                    style="color: var(--primary-color); text-decoration: none;">https://calculator.esla.ph</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="search.js"></script>
+</body>
+
+</html>

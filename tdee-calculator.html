@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDEE Calculator Philippines - Total Daily Energy Expenditure | ESLA</title>
+    <meta name="description"
+        content="Free TDEE Calculator for Filipinos. Calculate your Total Daily Energy Expenditure using Mifflin-St Jeor equation. Find daily calorie needs for weight loss, gain, or maintenance.">
+    <meta name="keywords"
+        content="TDEE calculator Philippines, total daily energy expenditure, calorie calculator PH, metabolism calculator, daily calories Philippines, fitness calculator, TDEE Filipino, energy expenditure calculator">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="TDEE Calculator Philippines - Total Daily Energy Expenditure">
+    <meta property="og:description"
+        content="Calculate your Total Daily Energy Expenditure (TDEE) to understand your daily calorie needs. Free TDEE calculator for Philippines.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/tdee-calculator.html">
+    <link rel="canonical" href="https://calculator.esla.ph/tdee-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>TDEE Calculator</h1>
+            <p class="hero-text">Calculate your Total Daily Energy Expenditure (TDEE), an estimate of how many calories
+                you burn per day.</p>
+        </section>
+
+        <section class="calculator-card">
+            <form id="tdeeForm" onsubmit="calculateTDEE(event)">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity">Activity Level</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise/sports 6-7 days/week)</option>
+                        <option value="1.9">Super active (very hard exercise/physical job)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Calculate TDEE</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Your Estimated TDEE:</p>
+                <div class="result-value" id="tdeeValue">--</div>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Calories per day</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateTDEE(e) {
+            e.preventDefault();
+            const gender = document.getElementById('gender').value;
+            const age = parseFloat(document.getElementById('age').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+
+            if (age && height && weight) {
+                // Mifflin-St Jeor Equation
+                let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+                if (gender === 'male') {
+                    bmr += 5;
+                } else {
+                    bmr -= 161;
+                }
+
+                const tdee = Math.round(bmr * activity);
+
+                document.getElementById('tdeeValue').innerText = tdee.toLocaleString();
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Loan Calculator Philippines - Auto Loan Payment Calculator | ESLA</title>
+    <meta name="description"
+        content="Free Car Loan Calculator Philippines. Calculate monthly payments for new or used cars. Instant amortization schedule with interest rates. Best auto loan calculator for Filipino car buyers.">
+    <meta name="keywords"
+        content="car loan calculator Philippines, auto loan calculator PH, vehicle loan calculator, car financing Philippines, monthly payment calculator, car loan amortization, car loan interest rate Philippines, kotse loan calculator, sasakyan loan">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="Car Loan Calculator Philippines - Auto Loan Payment Calculator">
+    <meta property="og:description"
+        content="Calculate car loan payments instantly. Free auto loan calculator with detailed amortization for Philippines car financing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/car-loan-calculator.html">
+    <link rel="canonical" href="https://calculator.esla.ph/car-loan-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Car Loan Calculator</h1>
+            <p class="hero-text">Estimate your monthly amortizations for your new or used car.</p>
+        </section>
+
+        <section class="calculator-card">
+            <form onsubmit="calculateLoan(event)">
+                <div class="form-group">
+                    <label for="amount">Vehicle Price</label>
+                    <input type="number" id="amount" placeholder="e.g. 1000000" required>
+                </div>
+                <div class="form-group">
+                    <label for="downpayment">Downpayment</label>
+                    <input type="number" id="downpayment" placeholder="e.g. 200000" required>
+                </div>
+                <div class="form-group">
+                    <label for="interest">Interest Rate (%) (Per Year)</label>
+                    <input type="number" id="interest" step="0.01" placeholder="e.g. 5.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="term">Loan Term (Years)</label>
+                    <select id="term">
+                        <option value="1">1 Year (12 months)</option>
+                        <option value="2">2 Years (24 months)</option>
+                        <option value="3" selected>3 Years (36 months)</option>
+                        <option value="4">4 Years (48 months)</option>
+                        <option value="5">5 Years (60 months)</option>
+                        <option value="6">6 Years (72 months)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Calculate Payment</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Monthly Payment:</p>
+                <div class="result-value" id="monthlyValue">--</div>
+                <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); text-align: left;">
+                    <p>Loan Amount: <span id="loanAmountDisp">--</span></p>
+                    <p>Total Interest: <span id="totalInterestDisp">--</span></p>
+                    <p>Total Payment: <span id="totalPaymentDisp">--</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateLoan(e) {
+            e.preventDefault();
+            const price = parseFloat(document.getElementById('amount').value);
+            const down = parseFloat(document.getElementById('downpayment').value) || 0;
+            const rate = parseFloat(document.getElementById('interest').value);
+            const years = parseFloat(document.getElementById('term').value);
+
+            if (price && !isNaN(rate) && years) {
+                const loanAmount = price - down;
+                const monthlyRate = (rate / 100) / 12;
+                const numPayments = years * 12;
+
+                // Standard Amortization Formula: M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ]
+                let monthlyPayment = 0;
+
+                if (rate === 0) {
+                    monthlyPayment = loanAmount / numPayments;
+                } else {
+                    monthlyPayment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+                        (Math.pow(1 + monthlyRate, numPayments) - 1);
+                }
+
+                const totalPayment = monthlyPayment * numPayments;
+                const totalInterest = totalPayment - loanAmount;
+
+                document.getElementById('monthlyValue').innerText = formatCurrency(monthlyPayment);
+                document.getElementById('loanAmountDisp').innerText = formatCurrency(loanAmount);
+                document.getElementById('totalInterestDisp').innerText = formatCurrency(totalInterest);
+                document.getElementById('totalPaymentDisp').innerText = formatCurrency(totalPayment);
+
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

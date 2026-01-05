@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - Calculator</title>
+    <meta name="description"
+        content="Free percentage calculator. Calculate percentages, percentage increases, decreases, and changes instantly. Easy-to-use online percentage tool.">
+    <meta name="keywords"
+        content="percentage calculator, percent calculator, percentage change, percentage increase, percentage decrease, math calculator">
+    <meta name="author" content="Calculator">
+    <meta property="og:title" content="Percentage Calculator - Calculator">
+    <meta property="og:description"
+        content="Calculate percentages, increases, and changes instantly with our free online tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://esla.phcalculators/percentage-calculator.html">
+    <link rel="canonical" href="https://esla.phpercentage-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .calc-mode {
+            background: var(--card-bg);
+            /* slightly lighter than body */
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .mode-title {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .inline-form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .inline-form input {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo" style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Percentage Calculator</h1>
+            <p class="hero-text">Calculate percentages, percentage increases, and more.</p>
+        </section>
+
+        <!-- Mode 1: What is X% of Y? -->
+        <section class="calculator-card"
+            style="max-width: 700px; background: transparent; box-shadow: none; border: none; padding: 0;">
+
+            <div class="calc-mode">
+                <div class="mode-title">1. Percentage of a Number</div>
+                <div class="inline-form">
+                    <span>What is</span>
+                    <input type="number" id="p1_pct" placeholder="%">
+                    <span>% of</span>
+                    <input type="number" id="p1_num" placeholder="Num">
+                    <button class="btn-primary" style="width: auto; padding: 0.5rem 1rem;"
+                        onclick="calcP1()">Calculate</button>
+                </div>
+                <div id="res1" style="margin-top: 1rem; font-weight: bold; color: var(--success);"></div>
+            </div>
+
+            <!-- Mode 2: X is what percent of Y? -->
+            <div class="calc-mode">
+                <div class="mode-title">2. Find the Percentage</div>
+                <div class="inline-form">
+                    <input type="number" id="p2_num1" placeholder="Num">
+                    <span>is what % of</span>
+                    <input type="number" id="p2_num2" placeholder="Total">
+                    <button class="btn-primary" style="width: auto; padding: 0.5rem 1rem;"
+                        onclick="calcP2()">Calculate</button>
+                </div>
+                <div id="res2" style="margin-top: 1rem; font-weight: bold; color: var(--success);"></div>
+            </div>
+
+            <!-- Mode 3: Percentage Change -->
+            <div class="calc-mode">
+                <div class="mode-title">3. Percentage Change</div>
+                <div class="inline-form">
+                    <span>From</span>
+                    <input type="number" id="p3_old" placeholder="Old">
+                    <span>to</span>
+                    <input type="number" id="p3_new" placeholder="New">
+                    <button class="btn-primary" style="width: auto; padding: 0.5rem 1rem;"
+                        onclick="calcP3()">Calculate</button>
+                </div>
+                <div id="res3" style="margin-top: 1rem; font-weight: bold; color: var(--success);"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calcP1() {
+            const pct = parseFloat(document.getElementById('p1_pct').value);
+            const num = parseFloat(document.getElementById('p1_num').value);
+            if (!isNaN(pct) && !isNaN(num)) {
+                const res = (pct / 100) * num;
+                document.getElementById('res1').innerText = `Result: ${res}`;
+            }
+        }
+
+        function calcP2() {
+            const n1 = parseFloat(document.getElementById('p2_num1').value);
+            const n2 = parseFloat(document.getElementById('p2_num2').value);
+            if (!isNaN(n1) && !isNaN(n2)) {
+                const res = (n1 / n2) * 100;
+                document.getElementById('res2').innerText = `Result: ${res.toFixed(2)}%`;
+            }
+        }
+
+        function calcP3() {
+            const oldV = parseFloat(document.getElementById('p3_old').value);
+            const newV = parseFloat(document.getElementById('p3_new').value);
+            if (!isNaN(oldV) && !isNaN(newV)) {
+                const change = ((newV - oldV) / Math.abs(oldV)) * 100;
+                const sign = change > 0 ? "+" : "";
+                document.getElementById('res3').innerText = `Change: ${sign}${change.toFixed(2)}%`;
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator - Calculator</title>
+    <meta name="description"
+        content="Simple, distraction-free online calculator for your browser. Free basic calculator with standard operations. Fast and easy to use.">
+    <meta name="keywords"
+        content="online calculator, simple calculator, basic calculator, web calculator, browser calculator, free calculator">
+    <meta name="author" content="Calculator">
+    <meta property="og:title" content="Online Calculator - Calculator">
+    <meta property="og:description" content="A distraction-free calculator for your browser. Simple and fast.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://esla.phcalculators/online-calculator.html">
+    <link rel="canonical" href="https://esla.phonline-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo" style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Simple Online Calculator</h1>
+            <p class="hero-text">A distraction-free calculator for your browser.</p>
+        </section>
+
+        <!-- Reuse the calculator widget from Home but centered cleanly -->
+        <div class="calculator-card" style="max-width: 600px; padding: 1.5rem;">
+            <div class="sci-calc" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                <div class="display" id="calcDisplay"
+                    style="grid-column: span 4; background: var(--bg-color); border: 2px solid var(--border-color); border-radius: 8px; padding: 1.25rem; font-size: 2rem; text-align: right; min-height: 80px; display: flex; align-items: center; justify-content: flex-end; margin-bottom: 0.75rem; font-weight: 600;">
+                    0</div>
+
+                <button class="btn-clear" onclick="clearCalc()"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">C</button>
+                <button onclick="appendCalc('(')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--input-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">(</button>
+                <button onclick="appendCalc(')')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--input-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">)</button>
+                <button onclick="deleteDigit()"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--input-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">⌫</button>
+
+                <button onclick="appendCalc('7')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">7</button>
+                <button onclick="appendCalc('8')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">8</button>
+                <button onclick="appendCalc('9')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">9</button>
+                <button class="operator" onclick="appendCalc('/')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--primary-color); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">÷</button>
+
+                <button onclick="appendCalc('4')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">4</button>
+                <button onclick="appendCalc('5')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">5</button>
+                <button onclick="appendCalc('6')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">6</button>
+                <button class="operator" onclick="appendCalc('*')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--primary-color); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">×</button>
+
+                <button onclick="appendCalc('1')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">1</button>
+                <button onclick="appendCalc('2')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">2</button>
+                <button onclick="appendCalc('3')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">3</button>
+                <button class="operator" onclick="appendCalc('-')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--primary-color); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">−</button>
+
+                <button onclick="appendCalc('0')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">0</button>
+                <button onclick="appendCalc('.')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--card-bg); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">.</button>
+                <button class="equals" onclick="calculateResult()"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--success); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">=</button>
+                <button class="operator" onclick="appendCalc('+')"
+                    style="padding: 1.25rem; font-size: 1.1rem; border-radius: 8px; background: var(--primary-color); color: white; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; transition: all 0.2s;">+</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Slightly simplified logic without Trig functions for "Simple" calc
+        // or we can reuse the same logic
+        const display = document.getElementById('calcDisplay');
+
+        function appendCalc(val) {
+            if (display.innerText === '0' && val !== '.') {
+                display.innerText = val;
+            } else {
+                display.innerText += val;
+            }
+        }
+
+        function clearCalc() {
+            display.innerText = '0';
+        }
+
+        function deleteDigit() {
+            if (display.innerText.length > 1) {
+                display.innerText = display.innerText.slice(0, -1);
+            } else {
+                display.innerText = '0';
+            }
+        }
+
+        function calculateResult() {
+            try {
+                let expr = display.innerText
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/−/g, '-');
+
+                const result = eval(expr);
+                display.innerText = Math.round(result * 100000000) / 100000000;
+            } catch (e) {
+                display.innerText = 'Error';
+                setTimeout(() => { if (display.innerText === 'Error') display.innerText = '0'; }, 1500);
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

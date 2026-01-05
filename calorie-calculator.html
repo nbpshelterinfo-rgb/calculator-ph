@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Calculator Philippines - Daily Calorie Needs Calculator | ESLA</title>
+    <meta name="description"
+        content="Free Calorie Calculator for Filipinos. Determine daily calorie needs for weight loss, gain, or maintenance. Calculate calories based on activity level and fitness goals in Philippines.">
+    <meta name="keywords"
+        content="calorie calculator Philippines, daily calories PH, weight loss calculator, calorie needs Philippines, diet calculator, nutrition calculator, Filipino calorie calculator, pagkain calorie">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="Calorie Calculator Philippines - Daily Calorie Needs Calculator">
+    <meta property="og:description"
+        content="Calculate your daily calorie needs based on your goals and activity level. Free calorie calculator for Philippines.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/calorie-calculator.html">
+    <link rel="canonical" href="https://calculator.esla.ph/calorie-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Calorie Calculator</h1>
+            <p class="hero-text">Determine exactly how many calories you need to consume to maintain, lose, or gain
+                weight.</p>
+        </section>
+
+        <section class="calculator-card">
+            <form id="calorieForm" onsubmit="calculateCalories(event)">
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="activity">Activity Level</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary</option>
+                        <option value="1.375">Lightly Active</option>
+                        <option value="1.55">Moderately Active</option>
+                        <option value="1.725">Very Active</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goal">Goal</label>
+                    <select id="goal">
+                        <option value="shouldMaintain">Maintain Weight</option>
+                        <option value="lose05">Lose 0.5 kg/week (-500 cal)</option>
+                        <option value="lose1">Lose 1 kg/week (-1000 cal)</option>
+                        <option value="gain05">Gain 0.5 kg/week (+500 cal)</option>
+                        <option value="gain1">Gain 1 kg/week (+1000 cal)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Calculate</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Daily Calorie Need:</p>
+                <div class="result-value" id="calValue">--</div>
+                <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Calories per day</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateCalories(e) {
+            e.preventDefault();
+            const gender = document.getElementById('gender').value;
+            const age = parseFloat(document.getElementById('age').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = document.getElementById('goal').value;
+
+            if (age && height && weight) {
+                // Mifflin-St Jeor Equation
+                let bmr = (10 * weight) + (6.25 * height) - (5 * age);
+                if (gender === 'male') {
+                    bmr += 5;
+                } else {
+                    bmr -= 161;
+                }
+
+                const tdee = bmr * activity;
+                let finalCalories = tdee;
+
+                if (goal === 'lose05') finalCalories -= 500;
+                else if (goal === 'lose1') finalCalories -= 1000;
+                else if (goal === 'gain05') finalCalories += 500;
+                else if (goal === 'gain1') finalCalories += 1000;
+
+                // Safety checks
+                if (finalCalories < 1200 && gender === 'female') finalCalories = 1200;
+                if (finalCalories < 1500 && gender === 'male') finalCalories = 1500;
+
+                document.getElementById('calValue').innerText = Math.round(finalCalories).toLocaleString();
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

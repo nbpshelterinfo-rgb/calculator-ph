@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator Philippines - Free Body Mass Index Calculator | ESLA</title>
+    <meta name="description"
+        content="Free BMI Calculator for Filipinos. Calculate your Body Mass Index based on height and weight. Instant results with health categories. Perfect for tracking fitness goals in the Philippines.">
+    <meta name="keywords"
+        content="BMI calculator Philippines, body mass index calculator, BMI calculator Filipino, calculate BMI Philippines, weight calculator, health calculator Philippines, obesity calculator, fitness calculator PH, BMI chart Philippines">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="BMI Calculator Philippines - Free Body Mass Index Calculator">
+    <meta property="og:description"
+        content="Calculate your Body Mass Index (BMI) instantly. Free, accurate BMI calculator for Filipinos. Track your health and fitness.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/bmi-calculator.html">
+    <link rel="canonical" href="https://calculator.esla.ph/bmi-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search - shows inside hamburger menu -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search Bar in Header -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>BMI Calculator</h1>
+            <p class="hero-text">Calculate your Body Mass Index (BMI) to measure body fat based on height and weight.
+            </p>
+        </section>
+
+        <section class="calculator-card">
+            <form id="bmiForm" onsubmit="calculateBMI(event)">
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g. 170" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g. 65" required>
+                </div>
+                <button type="submit" class="btn-primary">Calculate BMI</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Your BMI is:</p>
+                <div class="result-value" id="bmiValue">--</div>
+                <p id="bmiCategory" style="margin-top: 0.5rem; color: var(--text-color);">--</p>
+            </div>
+        </section>
+
+        <section style="margin-top: 4rem; text-align: center;">
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                <strong>BMI Categories:</strong><br>
+                Underweight: &lt; 18.5<br>
+                Normal weight: 18.5 – 24.9<br>
+                Overweight: 25 – 29.9<br>
+                Obesity: 30 or greater
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateBMI(e) {
+            e.preventDefault();
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (height && weight) {
+                const heightInMeters = height / 100;
+                const bmi = weight / (heightInMeters * heightInMeters);
+                const bmiRounded = bmi.toFixed(1);
+
+                let category = '';
+                let color = '';
+
+                if (bmi < 18.5) {
+                    category = 'Underweight';
+                    color = '#facc15'; // yellow
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    category = 'Normal weight';
+                    color = '#10b981'; // green
+                } else if (bmi >= 25 && bmi <= 29.9) {
+                    category = 'Overweight';
+                    color = '#f97316'; // orange
+                } else {
+                    category = 'Obesity';
+                    color = '#ef4444'; // red
+                }
+
+                document.getElementById('bmiValue').innerText = bmiRounded;
+                const catEl = document.getElementById('bmiCategory');
+                catEl.innerText = category;
+                catEl.style.color = color;
+
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPI Loan Calculator - Calculator</title>
+    <meta name="description"
+        content="Calculate BPI auto, housing, and personal loan payments. Free BPI loan calculator with current interest rates for Philippines borrowers.">
+    <meta name="keywords"
+        content="BPI loan calculator, BPI auto loan, BPI housing loan, BPI personal loan, Philippines bank loan calculator">
+    <meta name="author" content="Calculator">
+    <meta property="og:title" content="BPI Loan Calculator - Calculator">
+    <meta property="og:description" content="Calculate BPI loan payments for auto, housing, and personal loans.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://esla.phcalculators/bpi-loan-calculator.html">
+    <link rel="canonical" href="https://esla.phbpi-loan-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo" style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>BPI Loan Calculator</h1>
+            <p class="hero-text">Calculate payments for BPI Auto, Housing, and Personal Loans.</p>
+        </section>
+
+        <section class="calculator-card">
+            <div class="form-group" style="text-align: center;">
+                <label>Select Loan Product</label>
+                <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.5rem;">
+                    <button class="btn-primary" onclick="setLoan('auto')"
+                        style="width: auto; padding: 0.5rem 1rem;">Auto</button>
+                    <button class="btn-primary" onclick="setLoan('housing')"
+                        style="width: auto; padding: 0.5rem 1rem; background: var(--secondary-color);">Housing</button>
+                    <button class="btn-primary" onclick="setLoan('personal')"
+                        style="width: auto; padding: 0.5rem 1rem; background: var(--success);">Personal</button>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 2rem 0;">
+
+            <form onsubmit="calculateLoan(event)">
+                <h3 id="formTitle" style="margin-bottom: 1rem;">Auto Loan Calculator</h3>
+
+                <div class="form-group">
+                    <label for="amount">Loan Amount</label>
+                    <input type="number" id="amount" placeholder="Amount" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Interest Rate (%)</label>
+                    <input type="number" id="interest" step="0.01" value="9.8" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="term">Term (Months)</label>
+                    <input type="number" id="term" value="60" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Calculate</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Monthly Payment:</p>
+                <div class="result-value" id="monthlyValue">--</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function setLoan(type) {
+            const title = document.getElementById('formTitle');
+            const intParams = document.getElementById('interest');
+            const termParams = document.getElementById('term');
+
+            if (type === 'auto') {
+                title.innerText = 'Auto Loan Calculator';
+                intParams.value = 9.8;
+                termParams.value = 60;
+            } else if (type === 'housing') {
+                title.innerText = 'Housing Loan Calculator';
+                intParams.value = 6.88;
+                termParams.value = 240; // 20 years
+            } else {
+                title.innerText = 'Personal Loan Calculator';
+                intParams.value = 25.60; // Usually 1.2% add-on per month -> ~25% EIR
+                termParams.value = 36;
+            }
+        }
+
+        function calculateLoan(e) {
+            e.preventDefault();
+            const P = parseFloat(document.getElementById('amount').value);
+            const rate = parseFloat(document.getElementById('interest').value);
+            const months = parseFloat(document.getElementById('term').value);
+
+            if (P && !isNaN(rate) && months) {
+                const r = (rate / 100) / 12;
+                const M = (P * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+
+                document.getElementById('monthlyValue').innerText = formatCurrency(M);
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

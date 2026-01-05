@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator Philippines 2026 - Income Tax & Net Pay Calculator | ESLA</title>
+    <meta name="description"
+        content="Free Tax Calculator Philippines 2026. Calculate income tax based on TRAIN Law with SSS, PhilHealth, Pag-IBIG contributions. Compute net pay and withholding tax instantly. Updated tax tables.">
+    <meta name="keywords"
+        content="tax calculator Philippines, income tax calculator PH, TRAIN law calculator 2026, withholding tax Philippines, salary calculator Philippines, net pay calculator, SSS PhilHealth Pag-IBIG calculator, buwis calculator">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="Tax Calculator Philippines 2026 - Income Tax & Net Pay Calculator">
+    <meta property="og:description"
+        content="Calculate your Philippines income tax and net pay based on TRAIN Law tax tables 2026. Free tax calculator with contributions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/tax-calculator-philippines.html">
+    <link rel="canonical" href="https://calculator.esla.ph/tax-calculator-philippines.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Tax Calculator Philippines</h1>
+            <p class="hero-text">Compute your income tax based on the TRAIN Law tax tables (2023 onwards).</p>
+        </section>
+
+        <section class="calculator-card">
+            <form onsubmit="calculateTax(event)">
+                <div class="form-group">
+                    <label for="income">Monthly Basic Salary</label>
+                    <input type="number" id="income" placeholder="e.g. 25000" required>
+                </div>
+
+                <div
+                    style="margin-bottom: 2rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 0.5rem;">
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Contributions
+                        (Auto-calculated estimates)</p>
+                    <div style="display:flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>SSS/GSIS:</span> <span id="sssDisp">0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>PhilHealth:</span> <span id="philhealthDisp">0.00</span>
+                    </div>
+                    <div style="display:flex; justify-content: space-between;">
+                        <span>Pag-IBIG:</span> <span id="pagibigDisp">0.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Calculate Net Pay</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Net Monthly Income:</p>
+                <div class="result-value" id="netPay">--</div>
+
+                <div style="margin-top: 1rem; text-align: left; font-size: 0.9rem; color: var(--text-muted);">
+                    <div
+                        style="display:flex; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding: 0.5rem 0;">
+                        <span>Taxable Income:</span> <span id="taxableIncome">0.00</span>
+                    </div>
+                    <div
+                        style="display:flex; justify-content: space-between; padding: 0.5rem 0; color: var(--secondary-color); font-weight: bold;">
+                        <span>Withholding Tax:</span> <span id="taxDue">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateTax(e) {
+            e.preventDefault();
+            const income = parseFloat(document.getElementById('income').value);
+
+            if (income) {
+                // 1. Contributions (Simplified Estimates as of 2024/2025)
+
+                // SSS: Approx 4.5% employee share capped at varying levels. Let's use 1350 max estimate or 4.5%
+                let sss = income * 0.045;
+                if (sss > 1350) sss = 1350; // Cap at max contribution estimate
+
+                // PhilHealth: 5% total split 50/50 -> 2.5% employee. Income floor 10k, ceiling 100k
+                let phBase = income;
+                if (phBase < 10000) phBase = 10000;
+                if (phBase > 100000) phBase = 100000;
+                let philhealth = phBase * 0.025; // 2.5%
+
+                // Pag-IBIG: 2% capped at 100 (if max comp set to 5k) - Wait, it increased to 200 (max comp 10k) recently in 2024
+                let pagibig = income * 0.02;
+                if (pagibig > 200) pagibig = 200;
+
+                const totalContributions = sss + philhealth + pagibig;
+                const taxableIncome = income - totalContributions;
+
+                // 2. Tax Table (Annualized simplified to Monthly for quick calc)
+                /* 
+                   TRAIN Law (2023 onwards)
+                   0 - 20,833: 0%
+                   20,833 - 33,333: 15% in excess of 20,833
+                   33,333 - 66,666: 1,875 + 20% in excess of 33,333
+                   66,666 - 166,666: 8,541.66 + 25% in excess of 66,666
+                   166,666 - 666,666: 33,541.66 + 30% in excess of 166,666
+                   666,666+: 183,541.66 + 35% in excess of 666,666
+                */
+
+                let tax = 0;
+
+                if (taxableIncome <= 20833) {
+                    tax = 0;
+                } else if (taxableIncome <= 33333) {
+                    tax = (taxableIncome - 20833) * 0.15;
+                } else if (taxableIncome <= 66666) {
+                    tax = 1875 + (taxableIncome - 33333) * 0.20;
+                } else if (taxableIncome <= 166666) {
+                    tax = 8541.66 + (taxableIncome - 66666) * 0.25;
+                } else if (taxableIncome <= 666666) {
+                    tax = 33541.66 + (taxableIncome - 166666) * 0.30;
+                } else {
+                    tax = 183541.66 + (taxableIncome - 666666) * 0.35;
+                }
+
+                const net = income - totalContributions - tax;
+
+                document.getElementById('sssDisp').innerText = formatCurrency(sss);
+                document.getElementById('philhealthDisp').innerText = formatCurrency(philhealth);
+                document.getElementById('pagibigDisp').innerText = formatCurrency(pagibig);
+
+                document.getElementById('taxableIncome').innerText = formatCurrency(taxableIncome);
+                document.getElementById('taxDue').innerText = formatCurrency(tax);
+                document.getElementById('netPay').innerText = formatCurrency(net);
+
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

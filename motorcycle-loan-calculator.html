@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorcycle Loan Calculator Philippines - Motor Financing Calculator | ESLA</title>
+    <meta name="description"
+        content="Free Motorcycle Loan Calculator Philippines. Calculate monthly payments for motorcycles and scooters. Instant amortization schedule for motor financing. Best motorbike loan calculator PH.">
+    <meta name="keywords"
+        content="motorcycle loan calculator Philippines, motor loan calculator PH, motorbike financing, motorcycle installment Philippines, motor loan amortization, scooter loan calculator, motor financing Philippines">
+    <meta name="author" content="ESLA Calculator">
+    <meta property="og:title" content="Motorcycle Loan Calculator Philippines - Motor Financing Calculator">
+    <meta property="og:description"
+        content="Calculate monthly payments for motorcycle and scooter loans in Philippines. Free motor loan calculator with amortization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.esla.ph/motorcycle-loan-calculator.html">
+    <link rel="canonical" href="https://calculator.esla.ph/motorcycle-loan-calculator.html">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
+            <a href="index.html" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div>
+            <div class="nav-links" id="navLinks">
+                <!-- Mobile Search -->
+                <div class="mobile-search">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
+                    <button onclick="searchCalculators()">🔍</button>
+                </div>
+                <a href="index.html">Home</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <!-- Desktop Search -->
+            <div class="header-search">
+                <input type="text" id="searchInput" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Motorcycle Loan Calculator</h1>
+            <p class="hero-text">Compute monthly installments for motorcycles and scooters.</p>
+        </section>
+
+        <section class="calculator-card">
+            <form onsubmit="calculateLoan(event)">
+                <div class="form-group">
+                    <label for="amount">Motorcycle Price</label>
+                    <input type="number" id="amount" placeholder="e.g. 80000" required>
+                </div>
+                <div class="form-group">
+                    <label for="downpayment">Downpayment</label>
+                    <input type="number" id="downpayment" placeholder="e.g. 5000" required>
+                </div>
+                <!-- Motorcycle loans often have flat monthly add-on rates in PH, but we'll stick to effective annual for simplicity unless specified -->
+                <div class="form-group">
+                    <label for="interest">Interest Rate (%) (Per Year)</label>
+                    <input type="number" id="interest" step="0.01" placeholder="e.g. 24" required>
+                    <!-- Higher default because moto loans often are -->
+                </div>
+                <div class="form-group">
+                    <label for="term">Loan Term</label>
+                    <select id="term">
+                        <option value="6m">6 Months</option>
+                        <option value="12m">12 Months (1 Year)</option>
+                        <option value="18m">18 Months</option>
+                        <option value="24m">24 Months (2 Year)</option>
+                        <option value="36m">36 Months (3 Years)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Calculate Payment</button>
+            </form>
+
+            <div id="result" class="result-box">
+                <p>Monthly Payment:</p>
+                <div class="result-value" id="monthlyValue">--</div>
+                <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); text-align: left;">
+                    <p>Loan Amount: <span id="loanAmountDisp">--</span></p>
+                    <p>Total Interest: <span id="totalInterestDisp">--</span></p>
+                    <p>Total Payment: <span id="totalPaymentDisp">--</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">The ultimate collection of calculators for
+                    health, finance, and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        function calculateLoan(e) {
+            e.preventDefault();
+            const price = parseFloat(document.getElementById('amount').value);
+            const down = parseFloat(document.getElementById('downpayment').value) || 0;
+            const rate = parseFloat(document.getElementById('interest').value);
+            const termVal = document.getElementById('term').value;
+
+            let months = 0;
+            if (termVal === '6m') months = 6;
+            else if (termVal === '12m') months = 12;
+            else if (termVal === '18m') months = 18;
+            else if (termVal === '24m') months = 24;
+            else if (termVal === '36m') months = 36;
+
+            if (price && !isNaN(rate) && months) {
+                const loanAmount = price - down;
+                const monthlyRate = (rate / 100) / 12;
+
+                // Standard Amortization
+                let monthlyPayment = 0;
+
+                if (rate === 0) {
+                    monthlyPayment = loanAmount / months;
+                } else {
+                    monthlyPayment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) /
+                        (Math.pow(1 + monthlyRate, months) - 1);
+                }
+
+                const totalPayment = monthlyPayment * months;
+                const totalInterest = totalPayment - loanAmount;
+
+                document.getElementById('monthlyValue').innerText = formatCurrency(monthlyPayment);
+                document.getElementById('loanAmountDisp').innerText = formatCurrency(loanAmount);
+                document.getElementById('totalInterestDisp').innerText = formatCurrency(totalInterest);
+                document.getElementById('totalPaymentDisp').innerText = formatCurrency(totalPayment);
+
+                document.getElementById('result').classList.add('active');
+            }
+        }
+    </script>
+    <script src="search.js"></script>
+</body>
+
+</html>

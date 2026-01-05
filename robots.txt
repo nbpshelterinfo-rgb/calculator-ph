@@ -1,0 +1,8 @@
+﻿User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://calculator.esla.ph/sitemap.xml
+
+# Disallow admin or private directories (if any)
+# Disallow: /admin/
