@@ -1,87 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 1. Redirect Script (Sabse upar) -->
     <script>
         if (window.location.pathname.endsWith('/index.html')) {
+            // agar URL me index.html hai to usko hata kar root URL par bhej do
             var newLocation = window.location.href.replace('/index.html', '/');
             window.location.replace(newLocation);
         }
     </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESLA Calculator Philippines - Free Online Calculators 2026</title>
-    <meta name="description" content="Free Online Calculators Philippines 2026. BMI, TDEE, Calorie, Car Loan, Pag-IBIG, BPI, Tax Calculator, GWA, and more. Instant accurate calculations for health, finance, and daily life in the Philippines.">
-    <meta name="keywords" content="calculator Philippines, online calculator PH, BMI calculator, loan calculator Philippines, TDEE calculator, Pag-IBIG calculator, tax calculator Philippines, GWA calculator, scientific calculator, financial calculator Philippines, health calculator PH, ESLA calculator">
+    <title>ESLA Calculator Philippines - Free Online Calculators 2026 </title>
+    <meta name="description"
+        content="Free Online Calculators Philippines 2026. BMI, TDEE, Calorie, Car Loan, Pag-IBIG, BPI, Tax Calculator, GWA, and more. Instant accurate calculations for health, finance, and daily life in the Philippines.">
+    <meta name="keywords"
+        content="calculator Philippines, online calculator PH, BMI calculator, loan calculator Philippines, TDEE calculator, Pag-IBIG calculator, tax calculator Philippines, GWA calculator, scientific calculator, financial calculator Philippines, health calculator PH, ESLA calculator">
     <meta name="author" content="ESLA Calculator">
-    
-    <!-- SEO: Canonical Tag -->
-    <link rel="canonical" href="https://calculator.esla.ph/" />
-
-    <!-- Open Graph Tags -->
     <meta property="og:title" content="ESLA Calculator Philippines - Free Online Calculators 2026">
-    <meta property="og:description" content="Free online calculators for Filipinos. Health, finance, and daily life calculations. BMI, loans, TDEE, tax calculator, and more.">
+    <meta property="og:description"
+        content="Free online calculators for Filipinos. Health, finance, and daily life calculations. BMI, loans, TDEE, tax calculator, and more. calculator.esla.ph">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://calculator.esla.ph/">
-
+    <link rel="canonical" href="https://calculator.esla.ph/">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         /* Home page calculator - increased by 25% */
         #calcCard .display-container {
             min-height: 62px;
             padding: 0.5rem;
         }
-        #calcCard .display-main { font-size: 1.56rem; }
-        #calcCard .display-sub { font-size: 0.88rem; }
-        #calcCard .adv-calc-grid button { padding: 0.62rem 0; font-size: 0.88rem; }
-        #calcCard .adv-calc-grid { gap: 3px; }
 
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .header-search { display: none !important; }
-            .mobile-search { display: flex !important; padding: 1rem 0; gap: 0.5rem; }
-            .mobile-search input { flex: 1; padding: 0.75rem 1rem; border-radius: 0.5rem; background: var(--input-bg); border: 1px solid var(--border-color); color: white; font-size: 0.9rem; }
-            .mobile-search button { padding: 0.75rem 1rem; background: var(--primary-color); color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; font-weight: 600; }
+        #calcCard .display-main {
+            font-size: 1.56rem;
         }
 
-        /* Desktop */
+        #calcCard .display-sub {
+            font-size: 0.88rem;
+        }
+
+        #calcCard .adv-calc-grid button {
+            padding: 0.62rem 0;
+            font-size: 0.88rem;
+        }
+
+        #calcCard .adv-calc-grid {
+            gap: 3px;
+        }
+
+        /* Mobile responsive - show search in hamburger menu */
+        @media (max-width: 768px) {
+            .header-search {
+                display: none !important;
+            }
+
+            .mobile-search {
+                display: flex !important;
+                padding: 1rem 0;
+                gap: 0.5rem;
+            }
+
+            .mobile-search input {
+                flex: 1;
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+                background: var(--input-bg);
+                border: 1px solid var(--border-color);
+                color: white;
+                font-family: inherit;
+                font-size: 0.9rem;
+            }
+
+            .mobile-search button {
+                padding: 0.75rem 1rem;
+                background: var(--primary-color);
+                color: white;
+                border: none;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+
+        /* Desktop - hide mobile search, show header search */
         @media (min-width: 769px) {
-            .nav-container { display: flex !important; align-items: center !important; gap: 2rem !important; }
-            .mobile-search { display: none !important; }
-            .header-search { display: flex !important; }
+            .nav-container {
+                display: flex !important;
+                align-items: center !important;
+                gap: 2rem !important;
+            }
+
+            .mobile-search {
+                display: none !important;
+            }
+
+            .header-search {
+                display: flex !important;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <header class="navbar">
         <div class="nav-container" style="display: flex; align-items: center; gap: 2rem;">
-            <a href="/" class="logo" style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
-            <div class="hamburger" id="hamburger">☰</div>
+            <a href="/" class="logo"
+                style="background: linear-gradient(to right, #ffffff, #ef4444); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Calculator</a>
+            <div class="hamburger" id="hamburger">☰</div> <!-- Fixed ID for script.js -->
             <div class="nav-links" id="navLinks">
+                <!-- Mobile Search - shows inside hamburger menu -->
                 <div class="mobile-search">
-                    <input type="text" id="searchInputMobile" placeholder="Search calculators..." onkeyup="searchCalculators()">
+                    <input type="text" id="searchInputMobile" placeholder="Search calculators..."
+                        onkeyup="searchCalculators()">
                     <button onclick="searchCalculators()">🔍</button>
                 </div>
-                <!-- Links changed from index.html to / for better SEO -->
                 <a href="/">Home</a>
-                <a href="/#health">Health</a>
-                <a href="/#finance">Finance</a>
+                <a href="index.html#health">Health</a>
+                <a href="index.html#finance">Finance</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </div>
+            <!-- Desktop Search Bar in Header -->
             <div class="header-search" style="display: flex; gap: 0.5rem; margin-left: auto;">
-                <input type="text" id="searchInput" placeholder="Search calculators..." style="padding: 0.5rem 1rem; border-radius: 0.5rem; background: var(--input-bg); border: 1px solid var(--border-color); color: white; font-size: 0.9rem; width: 200px;" onkeyup="searchCalculators()">
-                <button onclick="searchCalculators()" style="padding: 0.5rem 1rem; background: var(--primary-color); color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; transition: all 0.2s; font-weight: 600;">🔍</button>
+                <input type="text" id="searchInput" placeholder="Search calculators..."
+                    style="padding: 0.5rem 1rem; border-radius: 0.5rem; background: var(--input-bg); border: 1px solid var(--border-color); color: white; font-family: inherit; font-size: 0.9rem; width: 200px;"
+                    onkeyup="searchCalculators()">
+                <button onclick="searchCalculators()"
+                    style="padding: 0.5rem 1rem; background: var(--primary-color); color: white; border: none; border-radius: 0.5rem; cursor: pointer; font-size: 1rem; transition: all 0.2s; font-weight: 600;">
+                    🔍
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Aapka baaki content yahan continue hoga -->
+        <section class="hero-section">
+            <div class="calculator-card" id="calcCard" style="max-width: 475px; padding: 0.94rem;">
+                <!-- Toggle -->
+                <div class="toggle-container">
+                    <button class="mode-toggle" id="sciToggle" onclick="toggleSci()">Switch to Scientific Mode</button>
+                </div>
+
+                <div class="display-container">
+                    <div class="display-sub" id="displayInput"></div>
+                    <div class="display-main" id="displayResult">0</div>
+                </div>
+
+                <div class="adv-calc-grid" id="calcGrid">
+                    <!-- Row 1 Sci -->
+                    <button class="btn-func sci-key" id="degRadBtn" onclick="toggleDegRad()">Deg</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('sin')">sin</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('cos')">cos</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('tan')">tan</button>
+                    <button class="btn-func sci-key" onclick="clearAll()">AC</button>
+
+                    <!-- Row 2 Sci -->
+                    <button class="btn-func sci-key" onclick="appendFunc('asin')">sin⁻¹</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('acos')">cos⁻¹</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('atan')">tan⁻¹</button>
+                    <button class="btn-func sci-key" onclick="insertConstant('PI')">π</button>
+                    <button class="btn-func sci-key" onclick="insertConstant('E')">e</button>
+
+                    <!-- Row 3 Sci -->
+                    <button class="btn-func sci-key" onclick="insertOp('^')">xʸ</button>
+                    <button class="btn-func sci-key" onclick="insertOp('^3')">x³</button>
+                    <button class="btn-func sci-key" onclick="insertOp('^2')">x²</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('exp')">eˣ</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('tenpow')">10ˣ</button>
+
+                    <!-- Row 4 Sci -->
+                    <button class="btn-func sci-key" onclick="appendFunc('yroot')">ʸ√x</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('cbrt')">³√</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('sqrt')">√</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('ln')">ln</button>
+                    <button class="btn-func sci-key" onclick="appendFunc('log')">log</button>
+
+                    <!-- Basic Row (AC moved up in Sci mode, but useful to keep AC visible in Basic) -->
+                    <!-- We need a layout that works for both. In Basic (4 col), we map: ( ) % AC -->
+                    <!-- But Sci has 5 cols. -->
+                    <!-- Hybrid approach: -->
+                    <!-- Row 5 (Basic Start) -->
+                    <button class="btn-op" onclick="insertOp('(')">(</button>
+                    <button class="btn-op" onclick="insertOp(')')">)</button>
+                    <button class="btn-op sci-key" onclick="insertOp('inv')">1/x</button>
+                    <button class="btn-op" onclick="insertOp('%')">%</button>
+                    <button class="btn-danger" onclick="clearAll()">AC</button>
+                    <!-- In Basic this is col 4. In Sci col 5? -->
+
+                    <button class="btn-num" onclick="appendNum('7')">7</button>
+                    <button class="btn-num" onclick="appendNum('8')">8</button>
+                    <button class="btn-num" onclick="appendNum('9')">9</button>
+                    <button class="btn-op" onclick="insertOp('+')">+</button>
+                    <button class="btn-func sci-key" onclick="backspace()">Del</button>
+
+                    <button class="btn-num" onclick="appendNum('4')">4</button>
+                    <button class="btn-num" onclick="appendNum('5')">5</button>
+                    <button class="btn-num" onclick="appendNum('6')">6</button>
+                    <button class="btn-op" onclick="insertOp('-')">−</button>
+                    <button class="btn-func sci-key" onclick="insertAns()">Ans</button>
+
+                    <button class="btn-num" onclick="appendNum('1')">1</button>
+                    <button class="btn-num" onclick="appendNum('2')">2</button>
+                    <button class="btn-num" onclick="appendNum('3')">3</button>
+                    <button class="btn-op" onclick="insertOp('*')">×</button>
+                    <button class="btn-func sci-key" onclick="memoryPlus()">M+</button>
+
+                    <button class="btn-num" onclick="appendNum('0')">0</button>
+                    <button class="btn-num" onclick="appendNum('.')">.</button>
+                    <button class="btn-func sci-key" onclick="insertOp('E')">EXP</button>
+                    <button class="btn-op" onclick="insertOp('/')">÷</button>
+                    <button class="btn-func sci-key" onclick="memoryMinus()">M-</button>
+
+                    <!-- Bottom Row Sci -->
+                    <button class="btn-func sci-key" onclick="toggleSign()">±</button>
+                    <button class="btn-func sci-key" onclick="mathFunc('rand')">RND</button>
+                    <button class="btn-func sci-key" onclick="mr()">MR</button> <!-- Space filler -->
+                    <button class="btn-action" onclick="finalize()" style="grid-column: span 2;">=</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Card Layout (Not Lists) -->
+        <section id="categories">
+            <h2>Calculators</h2>
+
+            <h3 id="health" style="margin-top: 2rem; color: var(--secondary-color);">Health & Fitness</h3>
+            <div class="calc-grid">
+                <a href="bmi-calculator.html" class="calc-link-card">
+                    <h3>BMI Calculator</h3>
+                    <p>Body Mass Index.</p>
+                </a>
+                <a href="tdee-calculator.html" class="calc-link-card">
+                    <h3>TDEE Calculator</h3>
+                    <p>Daily Energy Expenditure.</p>
+                </a>
+                <a href="calorie-calculator.html" class="calc-link-card">
+                    <h3>Calorie Calculator</h3>
+                    <p>Calorie Needs.</p>
+                </a>
+            </div>
+
+            <h3 id="finance" style="margin-top: 2rem; color: var(--success);">Financial Tools</h3>
+            <div class="calc-grid">
+                <a href="car-loan-calculator.html" class="calc-link-card">
+                    <h3>Car Loan Calculator</h3>
+                    <p>Auto Loan Payments.</p>
+                </a>
+                <a href="motorcycle-loan-calculator.html" class="calc-link-card">
+                    <h3>Motorcycle Loan</h3>
+                    <p>Motorbike Financing.</p>
+                </a>
+                <a href="pag-ibig-loan-calculator.html" class="calc-link-card">
+                    <h3>Pag-IBIG Loan</h3>
+                    <p>Housing Loan Estimate.</p>
+                </a>
+                <a href="bpi-loan-calculator.html" class="calc-link-card">
+                    <h3>BPI Loan</h3>
+                    <p>Bank Loans.</p>
+                </a>
+                <a href="afpslai-loan-calculator.html" class="calc-link-card">
+                    <h3>AFPSLAI Loan</h3>
+                    <p>Military & Police Loans.</p>
+                </a>
+                <a href="tax-calculator-philippines.html" class="calc-link-card">
+                    <h3>Tax Calculator PH</h3>
+                    <p>Income Tax & Net Pay.</p>
+                </a>
+            </div>
+            <h3 style="margin-top: 2rem; color: var(--primary-color);">Math & Utility</h3>
+            <div class="calc-grid">
+                <a href="online-calculator.html" class="calc-link-card">
+                    <h3>Online Calculator</h3>
+                    <p>Simple Calculator.</p>
+                </a>
+                <a href="percentage-calculator.html" class="calc-link-card">
+                    <h3>Percentage Calculator</h3>
+                    <p>Calculate Percentages.</p>
+                </a>
+                <a href="time-calculator.html" class="calc-link-card">
+                    <h3>Time Calculator</h3>
+                    <p>Add/Subtract Time.</p>
+                </a>
+                <a href="gwa-calculator.html" class="calc-link-card">
+                    <h3>GWA Calculator</h3>
+                    <p>Grade Weighted Average.</p>
+                </a>
+                <a href="axie-energy-calculator.html" class="calc-link-card">
+                    <h3>Axie Energy</h3>
+                    <p>Game Tracker.</p>
+                </a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-content"
+            style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Calculator</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Best Student for calculator Tools
+                    health, finance and daily life.</p>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="index.html"
+                            style="color: var(--text-muted); text-decoration: none;">All Calculators</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="about.html"
+                            style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="contact.html"
+                            style="color: var(--text-muted); text-decoration: none;">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1rem;">Legal</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5rem;"><a href="privacy.html"
+                            style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="terms.html"
+                            style="color: var(--text-muted); text-decoration: none;">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="border-top: 1px solid var(--border-color); padding: 1.5rem; text-align: center;">
+            <p style="color: var(--text-muted); margin: 0; font-size: 0.9rem;">© 2026 Calculator. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Search functionality
+        function searchCalculators() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const calcCards = document.querySelectorAll('.calc-link-card');
+
+            calcCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Restoring logic from previous iteration
+        let expression = '';
+        let isSci = false;
+        let isDeg = true;
+
+        const displayInput = document.getElementById('displayInput');
+        const displayResult = document.getElementById('displayResult');
+        const toggleBtn = document.getElementById('sciToggle');
+        const calcCard = document.getElementById('calcCard');
+
+        // Mobile Toggle Logic
+        function toggleSci() {
+            isSci = !isSci;
+            if (isSci) {
+                calcCard.classList.add('scientific');
+                toggleBtn.innerText = "Switch to Basic Mode";
+            } else {
+                calcCard.classList.remove('scientific');
+                toggleBtn.innerText = "Switch to Scientific Mode";
+            }
+        }
+
+        function renderInput() {
+            displayInput.innerText = expression;
+            try {
+                if (expression === '') { displayResult.innerText = '0'; return; }
+                const res = evalExpr(expression);
+                if (!isNaN(res)) {
+                    let s = +res.toFixed(8);
+                    displayResult.innerText = s;
+                    displayResult.style.color = 'var(--text-muted)';
+                }
+            } catch (e) { }
+        }
+
+        function finalize() {
+            try {
+                const res = evalExpr(expression);
+                let s = +res.toFixed(8);
+                displayResult.innerText = s;
+                displayResult.style.color = 'var(--success)';
+                expression = String(s);
+                displayInput.innerText = 'Ans';
+            } catch (e) {
+                displayResult.innerText = 'Error';
+            }
+        }
+
+        function appendNum(n) { expression += n; renderInput(); }
+        function insertOp(op) { expression += op; renderInput(); }
+        function insertConstant(c) {
+            if (c === 'PI') expression += 'PI';
+            if (c === 'E') expression += 'E';
+            renderInput();
+        }
+        function appendFunc(fn) { expression += fn + '('; renderInput(); }
+        function backspace() { expression = expression.slice(0, -1); renderInput(); }
+        function clearAll() { expression = ''; displayResult.innerText = '0'; renderInput(); }
+        function insertAns() { expression += 'Ans'; renderInput(); }
+
+        function evalExpr(expr) {
+            let clean = expr;
+            clean = clean.replace(/PI/g, Math.PI).replace(/E/g, Math.E);
+            clean = clean.replace(/\^/g, '**');
+            clean = clean.replace(/sin\(/g, isDeg ? `Math.sin(Math.PI/180*` : 'Math.sin(');
+            clean = clean.replace(/cos\(/g, isDeg ? `Math.cos(Math.PI/180*` : 'Math.cos(');
+            clean = clean.replace(/tan\(/g, isDeg ? `Math.tan(Math.PI/180*` : 'Math.tan(');
+            clean = clean.replace(/sqrt\(/g, 'Math.sqrt(');
+            clean = clean.replace(/log\(/g, 'Math.log10(');
+            clean = clean.replace(/ln\(/g, 'Math.log(');
+            return eval(clean);
+        }
+
+        function toggleDegRad() {
+            isDeg = !isDeg;
+            document.getElementById('degRadBtn').innerText = isDeg ? 'Deg' : 'Rad';
+        }
+
+        // Search function for filtering calculators
+        function searchCalculators() {
+            const searchInput = document.getElementById('searchInput');
+            const searchInputMobile = document.getElementById('searchInputMobile');
+
+            // Get the search term from whichever input has a value
+            let searchTerm = '';
+            if (searchInput && searchInput.value) {
+                searchTerm = searchInput.value.toLowerCase();
+            } else if (searchInputMobile && searchInputMobile.value) {
+                searchTerm = searchInputMobile.value.toLowerCase();
+            }
+
+            // Sync both search inputs only if they exist
+            if (searchInput && searchInputMobile) {
+                if (document.activeElement === searchInput) {
+                    searchInputMobile.value = searchInput.value;
+                } else if (document.activeElement === searchInputMobile) {
+                    searchInput.value = searchInputMobile.value;
+                }
+            }
+
+            const calcCards = document.querySelectorAll('.calc-link-card');
+
+            calcCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
+
+
 </html>
+
+
+
