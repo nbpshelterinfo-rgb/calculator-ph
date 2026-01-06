@@ -2,12 +2,30 @@
 <html lang="en">
 
 <head>
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Other head elements (meta tags, title, CSS links, etc.) -->
+
+    <!-- Redirect Script Start -->
     <script>
-  if (window.location.pathname.endsWith('/index.html')) {
-    // Ye URL se index.html ko hata kar root domain par bhej dega
-    window.location.replace(window.location.href.replace('/index.html', '/'));
-  }
-</script>
+        if (window.location.pathname.endsWith('/index.html')) {
+            // agar URL me index.html hai to usko hata kar root URL par bhej do
+            var newLocation = window.location.href.replace('/index.html', '/');
+            window.location.replace(newLocation);
+        }
+    </script>
+    <!-- Redirect Script End -->
+    
+    <!-- Step 3: Canonical Tag for SEO -->
+    <link rel="canonical" href="https://calculator.esla.ph/" />
+
+</head>
+<body>
+    <!-- Your website content -->
+</body>
+</html>
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -468,6 +486,7 @@
 
 
 </html>
+
 
 
 
